@@ -1,0 +1,326 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Portrait layout (default) */
+.logo {
+    background:url(../img/pplogo.png) no-repeat center center; /* 170px x 200px */
+    background-size: 281px 47px;
+    margin: auto;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    position:absolute;             /* position in the center of the screen */
+    height:100%;                   /* text area height */
+    width:100%;                   /* text area width */
+    text-align:center;
+    pointer-events: none;
+}
+
+.newYoshi {
+    background:url(../img/single_yoshi.png) no-repeat center center; /* 170px x 200px */
+    background-size: contain;
+    background-position: center;
+    margin: auto;
+    z-index: 1;
+    justify-content: center;
+    position:relative;             /* position in the center of the screen */
+    top:2em;
+    width:100%;
+    height:8.5em;
+    //height:100%;                   /* text area height */
+    //width:100%;                   /* text area width */
+    //text-align:center;
+    pointer-events: none;
+}
+
+.newYoshiText {
+    color:#000;
+    left: 10%;
+    right: 10%;
+    top: 7.5em;
+    margin: auto;
+    text-align:center;
+    font-size:2em;
+    font-weight:bold;
+    height:50%;
+    display: inline-block;
+}
+
+.logoMenu {
+    background:url(../img/pplogo.png) no-repeat center center; /* 170px x 200px */
+    background-size: 281px 47px;
+    height:47px;                   /* text area height */
+    width:281px;                   /* text area width */
+}
+
+#background {
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: #720000; /* Old browsers */
+    background: -moz-linear-gradient(top, #720000 0%, #000000 40%, #000000 61%, #720000 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #720000 0%,#000000 40%,#000000 61%,#720000 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #720000 0%,#000000 40%,#000000 61%,#720000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    width: 100%;
+    height: 100%;
+}
+
+#canvasContainer {
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    //background: transparent !important;
+}
+
+canvas {
+    pointer-events: none;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+
+.btn {
+  background: #a34e4e; /* Old browsers */
+  background: -moz-linear-gradient(top, #a34e4e 0%, #bc2d2f 50%, #a30000 52%, #d62626 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #a34e4e 0%,#bc2d2f 50%,#a30000 52%,#d62626 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #a34e4e 0%,#bc2d2f 50%,#a30000 52%,#d62626 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  border: 2px solid #440000;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  position: relative !important;
+  display: table !important;
+}
+
+.btn_islander_1 {
+  background: #e6f0a3; /* Old browsers */
+  background: -moz-linear-gradient(top, #e6f0a3 0%, #d2e638 50%, #c3d825 51%, #dbf043 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  border: 0.1em solid rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0px 0px 16px 2px rgba(30,105,0,1), 0px 2px 5px 2px rgba(0,0,0,0.4);
+  -moz-box-shadow: inset 0px 0px 16px 2px rgba(30,105,0,1), 0px 2px 5px 2px rgba(0,0,0,0.4);
+  box-shadow: inset 0px 0px 16px 2px rgba(30,105,0,1), 0px 2px 5px 2px rgba(0,0,0,0.4);
+  font-family: Arial;
+  color: rgba(30,105,0,1);
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  position: relative;
+  text-align: center;
+  bottom: 1.2em;
+  width: 30%;
+  left: 35%;
+  margin: auto !important;
+  text-shadow: 0px 1px 1px rgba(225,244,200, 1), 1px 1px 1px rgba(225,244,200, 1), 1px 0px 1px rgba(225,244,200, 1), 0px 0px 1px rgba(225,244,200, 1), -1px 0px 1px rgba(225,244,200, 1), -1px -1px 1px rgba(225,244,200, 1), 0px -1px 1px rgba(225,244,200, 1);
+}
+
+.islandMenu {
+	-webkit-box-shadow: inset 0px 0px 14px 1px rgba(89,138,81,0.5);
+	-moz-box-shadow: inset 0px 0px 14px 1px rgba(89,138,81,0.5);
+	box-shadow: inset 0px 0px 14px 1px rgba(89,138,81,0.5);
+	border-radius: 3em;
+    border: 0.1em solid #000000;
+}
+
+.upButton {
+  pointer-events: initial;
+  background:url(../img/uparrow.png) no-repeat center center; /* 170px x 200px */
+  background-size: cover;                  /* text area width */
+  position: relative;
+  top: 1.5em;
+}
+
+.downButton {
+	pointer-events: initial;
+  background:url(../img/downarrow.png) no-repeat center center; /* 170px x 200px */
+  background-size: cover;                    /* text area width */
+  position: relative;
+  bottom: 1.5em;
+}
+
+.leftButton {
+	pointer-events: initial;
+  background:url(../img/leftarrow.png) no-repeat center center; /* 170px x 200px */
+  background-size: cover;                 /* text area width */
+  position: relative;
+  left: 1.5em;
+}
+
+.rightButton {
+	pointer-events: initial;
+  background:url(../img/rightarrow.png) no-repeat center center; /* 170px x 200px */
+  background-size: cover;                   /* text area width */
+  position: relative;
+  right: 1.5em;
+}
+
+.placeButton {
+  background:url(../img/placearrow.png) no-repeat center center; /* 170px x 200px */
+  background-size: 60px 58px;
+  height:58px;                   /* text area height */
+  width:60px;                   /* text area width */
+  pointer-events:none;
+}
+
+.islandButton {
+  background:url(../img/island_button.png) no-repeat center center; /* 170px x 200px */
+  background-size: 60px 60px;
+  height:60px;                   /* text area height */
+  width:60px;                   /* text area width */
+  position:absolute;
+  left:5px;
+  top:5px;
+  pointer-events:all;
+  margin: 0 0 0 0 !important;
+}
+
+.list {
+	width:100%;
+	height:100%;
+}
+
+.villagerList {
+	left:20px;
+	right:20px;
+	height: 50%;
+	position: absolute;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.btn:hover {
+  background: #a51d1d; /* Old browsers */
+  background: -moz-linear-gradient(top, #a51d1d 0%, #d62626 17%, #a30000 82%, #a30000 82%, #630000 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #a51d1d 0%,#d62626 17%,#a30000 82%,#a30000 82%,#630000 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #a51d1d 0%,#d62626 17%,#a30000 82%,#a30000 82%,#630000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  text-decoration: none;
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
